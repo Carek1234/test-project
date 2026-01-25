@@ -1,0 +1,21 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" opened class="sidenav">
+    <mat-nav-list>
+      <mat-list-item routerLink="/">
+        <mat-icon matListItemIcon>home</mat-icon>
+        <span matListItemTitle>Home</span>
+      </mat-list-item>
+      <mat-list-item routerLink="/cars">
+        <mat-icon matListItemIcon>directions_car</mat-icon>
+        <span matListItemTitle>Cars</span>
+      </mat-list-item>
+      <mat-list-item routerLink="/brands">
+        <mat-icon matListItemIcon>label</mat-icon>
+        <span matListItemTitle>Brands</span>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

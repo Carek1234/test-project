@@ -1,10 +1,11 @@
 import { Component, inject, OnInit, signal } from '@angular/core'
 import { RouterOutlet } from '@angular/router'
 import { FirebaseService } from './FirebaseService/firebasService.service'
+import { sidebarComponent } from './sidebar/sidebar'
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, sidebarComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
