@@ -8,6 +8,11 @@ export interface Car {
   car_type: string[]
 }
 
+export interface BrandGroup {
+  id: string
+  brands: string[]
+}
+
 @Injectable({ providedIn: 'root' })
 export class FirebaseService {
   private firestore = inject(Firestore)
@@ -18,7 +23,7 @@ export class FirebaseService {
     return collectionData(this.carsCollection, { idField: 'id' }) as Observable<Car[]>
   }
 
-  getBrandTypes(): Observable<Car[]> {
-    return collectionData(this.brandCollection, { idField: 'id' }) as Observable<Car[]>
+  getBrandTypes(): Observable<BrandGroup[]> {
+    return collectionData(this.brandCollection, { idField: 'id' }) as Observable<BrandGroup[]>
   }
 }

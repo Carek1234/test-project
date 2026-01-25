@@ -1,18 +1,23 @@
 import { Component, inject } from '@angular/core'
+import { toSignal } from '@angular/core/rxjs-interop'
+import { map } from 'rxjs/operators'
+import { CommonModule } from '@angular/common'
 import { FirebaseService } from '../FirebaseService/firebasService.service'
+import { MatChipsModule } from '@angular/material/chips'
 
 @Component({
   selector: 'app-brands',
-  imports: [],
+  imports: [CommonModule, MatChipsModule],
   templateUrl: './brands.html',
   styleUrl: './brands.scss',
 })
 export class brandsComponent {
-  carsFirebaseService = inject(FirebaseService)
+  private readonly carsFirebaseService = inject(FirebaseService)
 
-  ngOnInit() {
-    this.carsFirebaseService.getBrandTypes().subscribe((brandData) => {
-      console.log('Car Types from Firestore:', brandData)
-    })
-  }
+  readonly brandTypes = toSignal(
+    this.carsFirebaseService
+      .getBrandTypes()
+      .pipe(map((data) => data.flatMap((item) => item.brands))),
+    { initialValue: [] },
+  )
 }

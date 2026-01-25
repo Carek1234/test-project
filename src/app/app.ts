@@ -17,9 +17,5 @@ export class App implements OnInit {
     this.carsFirebaseService.getCarData().subscribe((carData) => {
       console.log('Brands from Firestore:', carData)
     })
-
-    this.carsFirebaseService.getBrandTypes().subscribe((brandData) => {
-      console.log('Car Types from Firestore:', brandData)
-    })
   }
 }
