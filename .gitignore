@@ -1,48 +1,39 @@
-# =====================
-# Node modules
-# =====================
+# Dependencies
 node_modules/
+package-lock.json
+yarn.lock
 
-# =====================
-# Angular build output
-# =====================
+# Angular
 dist/
-out-tsc/
-
-# =====================
-# Angular cache
-# =====================
 .angular/
+*.js.map
+*.js
 
-# =====================
-# Environment files (local overrides)
-# =====================
-src/environments/environment*.ts
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
 
-# =====================
 # Logs
-# =====================
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# =====================
-# Firebase
-# =====================
-.firebase/
-firebase-debug.log
+# Environment
+.env
+.env.local
 
-# =====================
-# IDE / Editor
-# =====================
-.vscode/
-.idea/
+# OS
 .DS_Store
+Thumbs.db
 
-# =====================
-# MacOS system files
-# =====================
-*.swp
-*.swo
-*.swn
-*.swd
+# Testing
+coverage/
+.nyc_output/
+
+# Temp files
+*.tmp
+*.bak

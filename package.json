@@ -10,6 +10,7 @@
     "lint": "ng lint"
   },
   "prettier": {
+    "semi": false,
     "printWidth": 100,
     "singleQuote": true,
     "overrides": [
@@ -44,6 +45,7 @@
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
+    "husky": "^9.1.7",
     "jsdom": "^27.1.0",
     "prettier": "^3.8.1",
     "typescript": "~5.9.2",
