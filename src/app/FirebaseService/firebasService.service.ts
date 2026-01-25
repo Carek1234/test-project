@@ -1,7 +1,6 @@
 import { inject, Injectable } from '@angular/core'
-import { Firestore, collectionSnapshots, query } from '@angular/fire/firestore'
+import { Firestore, collection, collectionData } from '@angular/fire/firestore'
 import { Observable } from 'rxjs'
-import { map } from 'rxjs/operators'
 
 export interface Car {
   id?: string
@@ -12,19 +11,14 @@ export interface Car {
 @Injectable({ providedIn: 'root' })
 export class FirebaseService {
   private firestore = inject(Firestore)
+  carsCollection = collection(this.firestore, 'cars')
+  brandCollection = collection(this.firestore, 'brands')
 
-  getBrands(): Observable<Car[]> {
-    const q = query(this.firestore, 'cars')
-    return collectionSnapshots(q).pipe(
-      map((snapshots) =>
-        snapshots.map(
-          (doc) =>
-            ({
-              id: doc.id,
-              ...doc.data(),
-            }) as Car,
-        ),
-      ),
-    )
+  getCarData(): Observable<Car[]> {
+    return collectionData(this.carsCollection, { idField: 'id' }) as Observable<Car[]>
+  }
+
+  getBrandTypes(): Observable<Car[]> {
+    return collectionData(this.brandCollection, { idField: 'id' }) as Observable<Car[]>
   }
 }

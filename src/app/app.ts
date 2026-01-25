@@ -13,8 +13,12 @@ export class App implements OnInit {
   carsFirebaseService = inject(FirebaseService)
 
   ngOnInit() {
-    this.carsFirebaseService.getBrands().subscribe((brands) => {
-      console.log('Brands from Firestore:', brands)
+    this.carsFirebaseService.getCarData().subscribe((carData) => {
+      console.log('Brands from Firestore:', carData)
+    })
+
+    this.carsFirebaseService.getBrandTypes().subscribe((brandData) => {
+      console.log('Car Types from Firestore:', brandData)
     })
   }
 }
